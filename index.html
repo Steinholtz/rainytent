@@ -1,0 +1,448 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	
+	<title>Rainytent.com</title>
+  <meta property="og:title" content="Rainytent | Soothing binaural sounds" />
+	<meta property="og:description" content="Soothing binaural sounds for ralaxing" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://rainytent.com/" />
+	<meta property="og:image" content="http://rainytent.com/img/ogimage.png" />
+	
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135071073-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-135071073-1');
+    </script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  <script type="text/javascript" src="js/Pizzicato.min.js"></script>
+	
+	
+	
+    <style type="text/css">
+      
+        body {     
+            transition: background 1s linear;            
+        }
+        button {
+            touch-action: manipulation;
+        }
+        .rainyTent {            
+            background-image: linear-gradient(-180deg, #9FC39C 0%, #304B2C 100%);
+        }
+        .smallWavesOnRocks {            
+            background-image: linear-gradient(-180deg, #A6DAE7 22%, #A5D5C4 60%, #C2B9A6 100%);
+        }
+        .oceanLargeWaves {            
+            background-image: linear-gradient(-180deg, #D4F8FF 0%, #1568BA 100%);
+        }
+        .underWater {            
+            background-image: linear-gradient(-180deg, #2064AB 0%, #031334 100%);
+        }
+        .citySquare {                        
+            background-image: linear-gradient(-179deg, #CDEEF6 0%, #839143 63%, #777566 100%);
+        }
+        .carsDriveBy {            
+            background-image: linear-gradient(-180deg, #242526 0%, #6E2C2C 75%, #262627 100%);
+        }        
+        .forest {            
+            background-image: linear-gradient(-180deg, #B6EB5F 0%, #556D06 100%);
+        }
+						
+				-webkit-keyframes pulse {
+					0% { opacity: 0.2; }
+					50% { opacity: 1; }
+					100% { opacity: 0.2; }
+				}
+				@-moz-keyframes pulse {
+				  0% { opacity: 0.2; }
+					50% { opacity: 1; }
+					100% { opacity: 0.2; }
+				}
+				@-o-keyframes pulse {
+					0% { opacity: 0.2; }
+					50% { opacity: 1; }
+					100% { opacity: 0.2; }
+				}
+				@keyframes pulse {
+					0% { opacity: 0.2; }
+					50% { opacity: 1; }
+					100% { opacity: 0.2; }
+				}	
+      
+        .soundPlaying {
+            position: absolute;
+            top: 30px;
+            right: 80px;
+            direction: rtl;
+            font-size: 0.85em;
+            color: #fff;
+					
+						-webkit-animation: pulse 3s infinite ease-in-out;
+						-o-animation: pulse 3s infinite ease-in-out;
+						-ms-animation: pulse 3s infinite ease-in-out; 
+						-moz-animation: pulse 3s infinite ease-in-out; 
+						animation: pulse 3s infinite ease-in-out;
+        }
+
+                
+        div.btnMain {
+            display: inline-block;
+            width: 180px;
+            height: 60px;
+            background: #091d23;
+            border-radius: 100px;                        
+            font-size: 30px;
+            color: #FFFFFF;            
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        div.btnMain span {
+            font-size: 19px;
+            color: #fff;
+        }
+        
+        div#levelSection {
+            margin-top: 3em;
+            
+        }
+        div#levelIndicator {
+            /*all the small blocks in the level indicator*/
+            display: inline-block;
+            width: 50px;
+        }
+        
+        div.lvlBlock { 
+            /*the small blocks in the level indicator*/
+            display: inline-block;
+            width:4px;
+            height: 14px;  
+            background-color:rgba(255, 255, 255, 0.2);
+        }       
+        div.lvlBlock.active {
+            /*An active, e.g. solid, block in the level indicator*/
+            background: #fff;
+        }
+        
+        div button.levelCtrl {
+            /* The plus and minus buttons */            
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;              
+            background-color:rgba(255, 255, 255, 0.11);            
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            outline: none;                        
+            margin-left: 1em;
+            margin-right: 1em;
+            
+        }
+        div button.levelCtrl:hover {
+            background-color:rgba(255, 255, 255, 0.25);
+        }
+        div button.levelCtrl:active {
+            background-color:rgba(255, 255, 255, 0.15);
+        }        
+        div button.levelCtrl span {
+            display:inline-block;
+            margin-bottom: 4px;
+            font-size: 24px;
+        }
+        
+        /*--- loading spinner ---*/
+        
+        .lds-ellipsis {
+          display: inline-block;
+          position: relative;
+          width: 64px;
+          height: 64px;
+        }
+        .lds-ellipsis div {
+          position: absolute;
+          top: 27px;
+          width: 11px;
+          height: 11px;
+          border-radius: 50%;
+          background: #fff;
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+        .lds-ellipsis div:nth-child(1) {
+          left: 6px;
+          animation: lds-ellipsis1 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(2) {
+          left: 6px;
+          animation: lds-ellipsis2 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(3) {
+          left: 26px;
+          animation: lds-ellipsis2 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(4) {
+          left: 45px;
+          animation: lds-ellipsis3 0.6s infinite;
+        }
+        @keyframes lds-ellipsis1 {
+          0% {
+            transform: scale(0);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        @keyframes lds-ellipsis3 {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(0);
+          }
+        }
+        @keyframes lds-ellipsis2 {
+          0% {
+            transform: translate(0, 0);
+          }
+          100% {
+            transform: translate(19px, 0);
+          }
+        }
+        
+       
+    </style>
+    
+</head>
+<body class="rainyTent">
+	<header>
+		
+	</header>
+
+	<nav>
+		<ul class="cd-primary-nav">			
+			<li><a href="#0" id="rainyTent"><span>Rain on a tent </span></a></li>
+			<li><a href="#0" id="smallWavesOnRocks"><span>Small waves on rocks</span></a></li>
+			<li><a href="#0" id="oceanLargeWaves"><span>Ocean waves</span></a></li>
+			<li><a href="#0" id="citySquare"><span>City square</span></a></li>
+		</ul>
+	</nav>
+
+	<main class="cd-content">		
+     
+        <div class="content-inside-wrapper">
+            
+            <img src="img/logo_rainytent.png" alt="rainytent.com" width="491px" class="logoMain" />
+            
+            <p>
+                Soothing <a href="https://en.wikipedia.org/wiki/Binaural_recording" target="_blank">binaural</a> sounds
+            </p>            
+              
+            <div class="btnMain firstClick">
+                <a href="#0" id="stop" name="Silence" class="paused"><span></span></a>
+            </div>
+            
+            <div id="levelSection">                
+                <button class="levelCtrl" id="levelDown"><span>-</span></button> 
+                
+                <div id="levelIndicator">
+                    <div class="lvlBlock"></div>
+                    <div class="lvlBlock"></div>
+                    <div class="lvlBlock"></div>
+                    <div class="lvlBlock"></div>
+                    <div class="lvlBlock"></div>                
+                </div>
+                
+                <button class="levelCtrl" id="levelUp"><span>+</span></button>
+            </div>
+                    
+        </div>
+
+        
+	</main> <!-- cd-content -->
+    
+  
+    
+	<div class="cd-overlay-nav">
+		<span></span>
+	</div> <!-- cd-overlay-nav -->
+
+	<div class="cd-overlay-content">
+		<span></span>
+	</div> <!-- cd-overlay-content -->
+    
+    <span class="soundPlaying"><span>Rain on a tent</span> <img src="img/ico_speaker.svg" alt="Currently playing"/></span>
+	<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+
+    $(document).ready(function(){
+      
+
+        var doubleTouchStartTimestamp = 0;
+
+            document.addEventListener("touchstart", function(event){
+                
+                var now = +(new Date());
+                
+                if (doubleTouchStartTimestamp + 300 > now){
+                    
+                    event.preventDefault();
+                    
+                };
+                
+                doubleTouchStartTimestamp = now;
+                
+            });
+    
+    var group = new Pizzicato.Group([]);
+          
+    /* declaring the vars so they are available globally */  
+    var rainyTent;
+    var smallWavesOnRocks;
+    var oceanLargeWaves;    
+    var citySquare;
+			
+    var currentlyPlaying; 
+      
+    group.volume = 0.8;  
+
+    function changeLevel(setLevel) {
+        
+        group.volume += setLevel;       
+        
+    }
+      
+    function updateLevelIndicator(theLevel) {
+        
+        var matchValues = (theLevel*10/2); //Make the level match the index number of the level indicators        
+        
+        if (matchValues > 0) { 
+            $( "div#levelIndicator div:lt(" + matchValues + ")" ).addClass("active");
+            $( "div#levelIndicator div:nth-child(" + matchValues + ")" ).addClass("active");
+            $( "div#levelIndicator div:gt(" + (matchValues-1) + ")" ).removeClass("active");
+            
+        } else {
+            $( "div#levelIndicator div" ).removeClass("active");//If the is 0 remove all bars form the level indicator
+        }
+    }
+     
+    $( "div button.levelCtrl" ).on( "click", function() {         
+            
+        
+        if ( (this.id) == "levelDown" ) {            
+            
+            if ( (group.volume) > 0.2 ) {
+            
+                changeLevel(-0.2);
+            
+            } else {
+                group.volume = 0;                                 
+            }
+            
+        } else {
+            
+            if ( (group.volume) < 0.8 ) {
+            
+                changeLevel(0.2);
+            
+            } else {
+                group.volume = 1;                
+            }            
+        }    
+        updateLevelIndicator( group.volume.toFixed(2) );
+    });  
+      
+    init();        
+          
+    function init() {
+            
+        loadingSate();
+        updateLevelIndicator(0.8);
+        
+        rainyTent = new Pizzicato.Sound({ 
+              source: 'file',
+              options: { path: 'sounds/rainyTent.m4a', loop: true, attack: 2 }
+          }, function() {
+               console.log(rainyTent + ' loaded!');          
+               currentlyPlaying = rainyTent;     
+               pausedState(rainyTent);                              
+               group.addSound(rainyTent);               
+           });          
+    }  
+      
+    function loadAsound(thisId) {        
+        
+        loadingSate();
+        
+        thisId = new Pizzicato.Sound({ 
+              source: 'file',
+              options: { path: 'sounds/'+thisId+'.m4a', loop: true, attack: 2 }
+          }, function() {
+               console.log(thisId + ' loaded!');          
+               currentlyPlaying = thisId;     
+               playingState(thisId);               
+               group.stop();
+               group.addSound(thisId);               
+           });          
+    }  
+      
+    $( ".cd-primary-nav li a" ).on( "click", function() {
+        $('body').attr("class", this.id);        
+        loadAsound(this.id);
+    });
+
+    
+    function loadingSate() {
+        $("a#stop span").html('<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>');
+    }  
+      
+    function playingState(soundNowLoadad) {        
+        soundNowLoadad.play();
+        
+        $("a#stop").removeClass("paused");
+        $("a#stop span").html('<img src="img/ico_pause.svg" alt="Pause">');
+    }
+      
+    function pausedState() {
+        currentlyPlaying.pause();        
+        $("a#stop").addClass("paused");        
+        $("a#stop span").html('<img src="img/ico_play.svg" alt="Play">');           
+    }
+      
+    $( "div.btnMain" ).on( "click", function() {        
+       
+        if ( $( "a#stop" ).hasClass("paused") ) {
+            
+            playingState(currentlyPlaying);
+            
+        } else {            
+            
+            pausedState(currentlyPlaying);            
+            
+        }        
+    });
+
+  });
+
+
+</script>    
+    
+</body>
+</html>

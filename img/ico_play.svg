@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_play</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-187.000000, -52.000000)">
+            <circle id="Oval" stroke="#FFFFFF" cx="203" cy="67" r="30"></circle>
+            <g id="play" transform="translate(187.000000, 52.000000)" fill="#FFFFFF">
+                <path d="M9.94819965,2.58749212 L29.8415577,13.2993003 C30.8140992,13.8229765 31.1779765,15.0359006 30.6543003,16.0084421 C30.4782075,16.3354715 30.2145263,16.6070041 29.892803,16.7926137 L9.99944491,28.269551 C9.04268273,28.8215292 7.81960701,28.4933869 7.26762883,27.5366248 C7.09229821,27.2327183 7,26.8880358 7,26.5371798 L7,4.34843432 C7,3.24386482 7.8954305,2.34843432 9,2.34843432 C9.33097828,2.34843432 9.65678284,2.43057537 9.94819965,2.58749212 Z" id="Rectangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>
